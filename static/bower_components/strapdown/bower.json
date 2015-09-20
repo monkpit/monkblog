@@ -1,0 +1,21 @@
+{
+  "name": "strapdown",
+  "main": ["strapdown.js","strapdown.css"],
+  "version": "0.0.1",
+  "authors": [
+    "leadwit@foxmail.com"
+  ],
+  "description": "strapdown",
+  "keywords": [
+    "markdown"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/leadwit/strapdown",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

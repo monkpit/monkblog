@@ -1,0 +1,16 @@
+{
+  "name": "mysite-static",
+  "version": "0.0.0",
+  "homepage": "https://github.com/monkpit/flasksite",
+  "authors": [
+    "PittmanK2 <kyle.pittman@nov.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
