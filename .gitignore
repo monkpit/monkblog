@@ -2,3 +2,4 @@ __pycache__
 *.pyc
 *~
 secrets.py
+local_settings.py
