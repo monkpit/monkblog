@@ -4,7 +4,7 @@ from __future__ import division, print_function, absolute_import
 import os
 
 from flask import Flask, send_from_directory, request, \
-                    render_template, url_for, redirect
+                    render_template, url_for, redirect, abort
 
 from settings import APP_STATIC, DATABASE_URI
 
@@ -19,29 +19,27 @@ def hello_world():
 def page_not_found(e):
         return send_from_directory('static', '404.html'), 404
 
-#@app.route('/markdown/<filename>')
-def markdown(filename):
-    if ".md" not in filename:
-        filename += ".md"
-
-    markdown_theme = request.args.get('theme', 'spacelab')
-
-    markdown_content = "# No content provided. #"
-    try:
-        markdown_content = open(os.path.join(APP_STATIC, 'markdown', filename)).read()
-    except IOError:
-        markdown_content = "# " + filename + " was not found.#"
-    return render_template('mysite/markdown.html',
-                            context={"markdown_content": markdown_content,
-                                     "markdown_theme": markdown_theme})
-
 @app.route('/markdown/<slug>')
 def markdown_db(slug):
     from models import Post, Category
-    markdown_content = Post.query.filter_by(slug=slug).first().body
-    markdown_theme = request.args.get('theme', 'spacelab')
-    return render_template('mysite/markdown.html',
-                            context={'markdown_content': markdown_content,
+    post_object = Post.query.filter_by(slug=slug).first()
+    given_passphrase = request.args.get('passphrase', None)
+    if post_object.passphrase is not None:
+        # Check if the passwords match
+        if post_object.passphrase == given_passphrase:
+            # serve post
+            markdown_content = post_object.body
+            markdown_theme = request.args.get('theme', 'spacelab')
+            return render_template('mysite/markdown.html',
+                                    context={'markdown_content': markdown_content,
+                                         'markdown_theme': markdown_theme})
+        else:
+            abort(401)
+    else:
+        markdown_content = post_object.body
+        markdown_theme = request.args.get('theme', 'spacelab')
+        return render_template('mysite/markdown.html',
+                                context={'markdown_content': markdown_content,
                                      'markdown_theme': markdown_theme})
 
 @app.route('/markdown/images/<filename>')

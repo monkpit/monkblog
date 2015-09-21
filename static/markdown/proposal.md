@@ -1,15 +1,18 @@
 
 <center>
-<h1>Dashboard/OEE Project</h1>
+    <h1>Dashboard/OEE Project</h1>
 
-<img src='./images/dashboard.png'/>
+    <img src='./images/dashboard.png'/>
 </center>
 
 ## Background ##
-KPIs derived from current data sources are inaccurate.
+KPIs derived from NOV's current data sources are inaccurate.
 NOV can undertake a series of projects to automatically gather accurate info, and present that info in a meaningful way.
 
 ## Goals ##
+<center>
+    <img src='./images/vimana_mobile.png' />
+</center>
 * Provide managers with accurate, meaningful KPIs.
 * Lay foundation to expand finished product to other facilities
 
@@ -17,6 +20,11 @@ NOV can undertake a series of projects to automatically gather accurate info, an
 The end result of the project is a package of software & hardware that can be deployed at any manufacturing facility in NOV.
 
 ## Phases ##
+
+<center>
+    <img src='./images/downtime.png' />
+</center>
+
 * Identify the users of the system
     - How many different user categories will there be?
     - Which users are high priority for pilot project?
@@ -60,7 +68,7 @@ The following are necessary cost elements of the project:
 We assume the following conditions to be true or fulfilled for the project to be successful:
 
 * The project is supported by all departments involved
-* The project team is able to devote 100% of their working time to this project only
+* The project team is able to fully devote their working time to this project
 * The budget is adequate to cover the scope of the project
 
 #### Risks ####

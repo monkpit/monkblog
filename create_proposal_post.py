@@ -12,7 +12,7 @@ def prime_db():
         db.drop_all()
         db.create_all()
         novcat = Category(name='NOV')
-        oeepost = Post(title='OEE Proposal', body=post_src, category=novcat)
+        oeepost = Post(title='OEE Proposal', body=post_src, category=novcat, passphrase="N0V")
         db.session.add(novcat)
         db.session.add(oeepost)
         db.session.commit()
