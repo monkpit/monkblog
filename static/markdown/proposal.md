@@ -10,20 +10,22 @@ KPIs derived from NOV's current data sources are inaccurate.
 NOV can undertake a series of projects to automatically gather accurate info, and present that info in a meaningful way.
 
 ## Goals ##
-<center>
-    <img src='./images/vimana_mobile.png' />
-</center>
+
 * Provide managers with accurate, meaningful KPIs.
 * Lay foundation to expand finished product to other facilities
+
+## Example Features ##
+
+<center>
+    <img src='./images/VIMANA_Screen_3.png' />
+    <img src='./images/vimana_mobile.png' style="width: 20%" />
+    <img src='./images/downtime.png' />
+</center>
 
 ## Scope ##
 The end result of the project is a package of software & hardware that can be deployed at any manufacturing facility in NOV.
 
 ## Phases ##
-
-<center>
-    <img src='./images/downtime.png' />
-</center>
 
 * Identify the users of the system
     - How many different user categories will there be?
