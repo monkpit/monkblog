@@ -2,8 +2,9 @@
 
 from __future__ import print_function
 import os
-from models import *
-from settings import APP_STATIC
+import monkblog.models as models
+from monkblog.settings import APP_STATIC
+from monkblog.database import db
 
 def prime_db():
     db.drop_all()
@@ -11,13 +12,13 @@ def prime_db():
     filename1 = os.path.join(APP_STATIC, 'markdown', 'atom_line-ending-selector.md')
     filename2 = os.path.join(APP_STATIC, 'markdown', 'proposal.md')
     try:
-        kyle_author = Author(real_name="Kyle Pittman")
+        kyle_author = models.Author(real_name="Kyle Pittman")
         post_src = open(filename1).read()
-        atomcat = Category(name='Atom Editor')
-        oeepost = Post(title='atom', body=post_src, category=atomcat, author=kyle_author)
+        atomcat = models.Category(name='Atom Editor')
+        oeepost = models.Post(title='atom', body=post_src, category=atomcat, author=kyle_author)
         post_src2 = open(filename2).read()
-        novcat = Category(name='NOV')
-        atompost = Post(title='OEE Proposal', body=post_src2, category=novcat, passphrase='N0V', author=kyle_author)
+        novcat = models.Category(name='NOV')
+        atompost = models.Post(title='OEE Proposal', body=post_src2, category=novcat, passphrase='N0V', author=kyle_author)
         db.session.add(kyle_author)
         db.session.add(novcat)
         db.session.add(atompost)
