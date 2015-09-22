@@ -8,12 +8,14 @@
 <xmp theme="{{ markdown_theme }}" style="display: none">
 ## Name
 {{ author.real_name }}
+{% if author.real_name != author.handle %}
 ## Handle
 {{ author.handle }}
+{% endif %}
 ## Twitter
-{{ author.twitter }}
+<a href="https://www.twitter.com/{{author.twitter}}">@{{ author.twitter }}</a>
 ## Email
-{{ author.email }}
+<a href="mailto://{{author.email}}">{{ author.email }}</a>
 </xmp>
 
 <a class="twitter-timeline"
