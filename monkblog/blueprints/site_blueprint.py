@@ -3,12 +3,13 @@ from flask import Flask, send_from_directory, request, Blueprint, \
 import os
 
 from monkblog.models import Post, Category
+from monkblog.database import db
 
 site_blueprint = Blueprint('site_blueprint', __name__, template_folder='templates')
 
 @site_blueprint.route('/')
 def post_index():
-    post_objects = Post.query.filter_by(passphrase=None).order_by(Post.pub_date.desc()).limit(10).all()
+    post_objects = db.session.query(Post).filter_by(passphrase=None).order_by(Post.pub_date.desc()).limit(10).all()
     markdown_theme = request.args.get('theme', 'spacelab')
     rendered_posts = [render_template('mysite/partial_post.html', context={'post': post, 'markdown_theme': markdown_theme}) for post in post_objects]
     return render_template('mysite/post_index.html', context={'rendered_posts': rendered_posts})
@@ -19,7 +20,7 @@ def page_not_found(e):
 
 @site_blueprint.route('/markdown/<slug>')
 def markdown_db(slug):
-    post_object = Post.query.filter_by(slug=slug).first()
+    post_object = db.session.query(Post).filter_by(slug=slug).first()
     given_passphrase = request.args.get('passphrase', None)
     if post_object.passphrase is not None:
         # Check if the passwords match

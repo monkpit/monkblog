@@ -1,17 +1,23 @@
 import datetime
-from monkblog.database import db
 
-class Author(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    slug = db.Column(db.String(255), unique=True, nullable=False)
-    real_name = db.Column(db.String(255), unique=True, nullable=False)
-    handle = db.Column(db.String(255), unique=True, nullable=False)
-    twitter = db.Column(db.String(255))
-    email = db.Column(db.String(255))
+from sqlalchemy import Column, Integer, String
 
-    def __init__(self, real_name, handle=None):
+from monkblog.models.base import Base
+
+class Author(Base):
+    __tablename__ = 'authors'
+    id = Column(Integer, primary_key=True)
+    slug = Column(String(255), unique=True, nullable=False)
+    real_name = Column(String(255), unique=True, nullable=False)
+    handle = Column(String(255), unique=True, nullable=False)
+    twitter = Column(String(255))
+    email = Column(String(255))
+
+    def __init__(self, real_name, email=None, twitter=None, handle=None):
         self.real_name = real_name
         self.handle = handle
+        self.twitter = twitter
+        self.email = email
         if handle is None:
             self.handle = real_name
         self.slug = self.handle.replace(' ', '')

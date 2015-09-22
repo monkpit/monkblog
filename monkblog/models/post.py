@@ -1,19 +1,24 @@
 import datetime
 
-from monkblog.database import db
+from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy.schema import ForeignKey
+from sqlalchemy.orm import relationship, backref
 
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    author_id = db.Column(db.Integer, db.ForeignKey('author.id'))
-    author = db.relationship('Author', backref=db.backref('posts', lazy='dynamic'))
-    slug = db.Column(db.String(50), unique=True, nullable=False)
-    title = db.Column(db.String(255), unique=True, nullable=False)
-    passphrase = db.Column(db.String(255), nullable=True)
-    body = db.Column(db.Text)
-    pub_date = db.Column(db.DateTime)
+from monkblog.models.base import Base
 
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    category = db.relationship('Category', backref=db.backref('posts', lazy='dynamic'))
+class Post(Base):
+    __tablename__ = 'posts'
+    id = Column(Integer, primary_key=True)
+    author_id = Column(Integer, ForeignKey('authors.id'))
+    author = relationship('Author', backref=backref('posts', lazy='dynamic'))
+    slug = Column(String(50), unique=True, nullable=False)
+    title = Column(String(255), unique=True, nullable=False)
+    passphrase = Column(String(255), nullable=True)
+    body = Column(Text)
+    pub_date = Column(DateTime)
+
+    category_id = Column(Integer, ForeignKey('categories.id'))
+    category = relationship('Category', backref=backref('posts', lazy='dynamic'))
 
     def __init__(self, title, body, category, author, pub_date=None, passphrase=None):
         self.title = title
