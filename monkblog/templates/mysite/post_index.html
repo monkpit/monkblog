@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block styles %}
+{% endblock %}
+{% block content %}
+    {% for post in context.rendered_posts %}
+    {{ post|safe }}
+    {% endfor %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='bower_components/strapdown/strapdown.js') }}"></script>
+{% endblock %}
