@@ -35,6 +35,7 @@ def post_from_db(slug):
                                 post=post_object,
                                 bootstrap_theme=bootstrap_theme)
 
+@model_blueprint.route('/posts/posts/images/<filename>')
 @model_blueprint.route('/posts/images/<filename>')
 def post_image(filename):
     return redirect('/static/markdown/posts/images/' + filename)

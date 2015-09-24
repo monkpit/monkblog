@@ -2,7 +2,7 @@
 
 # Atom line-ending-selector error
 
-<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='./posts/images/atomeditor.png' alt="Get Atom!"/></a>
+<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='posts/images/atomeditor.png' alt="Get Atom!"/></a>
 
 Today I installed the beautiful [Atom editor](http://www.atom.io/) on my Ubuntu 14.10 system.
 
@@ -35,9 +35,7 @@ To open the console, click: `View > Developer > Toggle Developer Tools`.
 <br/>
 
 <figure class="figure center-block">
-    <a href="./images/atom_devconsole.png">
-        <img class='img-responsive' src="./posts/images/atom_devconsole.png" />
-    </a>
+    <img class='img-responsive' src="posts/images/atom_devconsole.png" />
     <figcaption class="figure-caption">
         The Atom developer console - select the Sources tab.
     </figcaption>
@@ -65,4 +63,4 @@ But I found a workaround that is working perfectly for me: [build Atom from sour
 Yes, I hear you saying this in the back of your head.
 But believe me, it's a pretty painless process.
 
-For more details, check out my post about [Building Atom from source](/markdown/build_atom).
+For more details, check out my post about [Building Atom from source](/posts/Build_Atom).
