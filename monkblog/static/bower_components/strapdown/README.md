@@ -1,4 +1,0 @@
-strapdown
-=========
-
-strapdown markdown

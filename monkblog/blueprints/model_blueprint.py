@@ -1,7 +1,7 @@
 from flask import Flask, send_from_directory, request, Blueprint, \
                     render_template, url_for, redirect, abort
 
-from monkblog.models import Author
+from monkblog.models import Author, Post
 from monkblog.database import db
 
 model_blueprint = Blueprint('model_blueprint', __name__, template_folder='templates')
@@ -30,12 +30,11 @@ def post_from_db(slug):
         else:
             abort(401)
     else:
-        markdown_content = post_object.body
-        markdown_theme = request.args.get('theme', 'spacelab')
+        bootstrap_theme = request.args.get('theme', 'spacelab')
         return render_template('mysite/markdown.html',
-                                context={'markdown_content': markdown_content,
-                                     'markdown_theme': markdown_theme})
+                                post=post_object,
+                                bootstrap_theme=bootstrap_theme)
 
 @model_blueprint.route('/posts/images/<filename>')
 def post_image(filename):
-    return redirect('/static/markdown/images/' + filename)
+    return redirect('/static/markdown/posts/images/' + filename)

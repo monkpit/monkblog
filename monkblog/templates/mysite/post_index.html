@@ -2,11 +2,17 @@
 {% block styles %}
 {% endblock %}
 {% block content %}
-    {% for post in context.rendered_posts %}
-    {{ post|safe }}
-    {% endfor %}
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='bower_components/strapdown/strapdown.js') }}"></script>
+{% for post in posts %}
+<div class="post" id="{{post.slug}}">
+<p>
+  <i>
+    Posted {{post.pub_date}} by <a href="/authors/{{post.author.slug}}">{{post.author.handle}}</a>
+  </i>
+</p>
+{{ post.body|markdown }}
+{% filter markdown %}
+***
+{% endfilter %}
+</div>
+{% endfor %}
 {% endblock %}

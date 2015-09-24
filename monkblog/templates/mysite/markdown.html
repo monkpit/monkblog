@@ -3,10 +3,10 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/monkdown.css') }}">
 {% endblock %}
 {% block content %}
-<xmp theme="{{ context.markdown_theme }}" style="display: none">
-    {{ context.markdown_content|safe }}
-</xmp>
-{% endblock %}
-{% block scripts %}
-    <script src="{{ url_for('static', filename='bower_components/strapdown/strapdown.js') }}"></script>
+<p>
+  <i>
+    Posted {{post.pub_date}} by <a href="/authors/{{post.author.slug}}">{{post.author.handle}}</a>
+  </i>
+</p>
+{{ post.body|markdown }}
 {% endblock %}
