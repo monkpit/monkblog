@@ -1,9 +1,9 @@
 
 
 # Building Atom From Source
-<br/>
-<a href='http://www.atom.io'><img class='img-responsive' style='width: 25em;' src='./images/atomeditor.png' alt="Get Atom!"/></a>
-<br/>
+
+<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='./posts/images/atomeditor.png' alt="Get Atom!"/></a>
+
 
 In [my previous post](/markdown/atom) I came to the conclusion that I needed some kind of workaround to fix my Atom installation on Ubuntu.
 That workaround was to build Atom from source.
@@ -143,6 +143,7 @@ In a shell environment, anything inside the parentheses of `$()` is evaluated an
 Backticks (` `` `) have the same effect.
 
 For example:
+
 ```bash
 [monkpit@monkbox]~$ echo Hello!
 Hello!

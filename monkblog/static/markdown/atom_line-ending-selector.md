@@ -2,15 +2,12 @@
 
 # Atom line-ending-selector error
 
-<br/>
-<center>
-<a href='http://www.atom.io'><img class='img-responsive' style='width: 25em;' src='./images/atomeditor.png' alt="Get Atom!"/></a>
-</center>
-<br/>
+<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='./posts/images/atomeditor.png' alt="Get Atom!"/></a>
 
 Today I installed the beautiful [Atom editor](http://www.atom.io/) on my Ubuntu 14.10 system.
 
 Immediately I received an error message:
+
 ```
 Uncaught TypeError: object is not a function
 
@@ -37,9 +34,9 @@ To open the console, click: `View > Developer > Toggle Developer Tools`.
 
 <br/>
 
-<figure style="max-width: 40em;" class="figure center-block">
+<figure class="figure center-block">
     <a href="./images/atom_devconsole.png">
-        <img class='img-responsive' src="./images/atom_devconsole.png" />
+        <img class='img-responsive' src="./posts/images/atom_devconsole.png" />
     </a>
     <figcaption class="figure-caption">
         The Atom developer console - select the Sources tab.

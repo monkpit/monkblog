@@ -1,9 +1,6 @@
 
-<center>
-    <h1>Dashboard/OEE Project</h1>
-
-    <img src='./images/dashboard.png'/>
-</center>
+<h1>Dashboard/OEE Project</h1>
+<img class='img-responsive' src='./posts/images/dashboard.png'/>
 
 ## Background ##
 KPIs derived from NOV's current data sources are inaccurate.
@@ -17,9 +14,9 @@ NOV can undertake a series of projects to automatically gather accurate info, an
 ## Example Features ##
 
 <center>
-    <img src='./images/VIMANA_Screen_3.png' />
-    <img src='./images/vimana_mobile.png' style="width: 20%" />
-    <img src='./images/downtime.png' />
+    <img src='./posts/images/VIMANA_Screen_3.png' />
+    <img src='./posts/images/vimana_mobile.png' style="width: 20%" />
+    <img src='./posts/images/downtime.png' />
 </center>
 
 ## Scope ##
