@@ -1,4 +1,6 @@
-<xmp theme="{{ context.markdown_theme }}" style="display: none">
-<i>Posted {{context.post.pub_date}} by <a href="/authors/{{context.post.author.slug}}">{{context.post.author}}</a></i>
-{{ context.post.body|safe }}
-</xmp>
+<p>
+  <i>
+    Posted {{post.pub_date}} by <a href="/authors/{{post.author.slug}}">{{post.author.handle}}</a>
+  </i>
+</p>
+{{ post.body|markdown }}
