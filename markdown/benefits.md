@@ -4,7 +4,7 @@
 <passphrase>parsepass</passphrase>
 
 <center>
-    <img src="./images/facility_map.png" />
+    <img src="images/facility_map.png" />
 </center>
 
 #Something
