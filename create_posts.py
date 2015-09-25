@@ -13,14 +13,14 @@ from monkblog.models import Author, Post, Category, Base
 from monkblog.settings import APP_STATIC
 
 
-def prime_db():
+def prime_db(basedir):
     Base.metadata.drop_all(bind=db.engine)
     Base.metadata.create_all(bind=db.engine)
     #Base.session.commit()
     db.session.commit()
-    filename1 = os.path.join(APP_STATIC, 'markdown', 'atom_line-ending-selector.md')
-    filename2 = os.path.join(APP_STATIC, 'markdown', 'proposal.md')
-    filename3 = os.path.join(APP_STATIC, 'markdown', 'build_atom.md')
+    filename1 = os.path.join(basedir, 'markdown', 'atom_line-ending-selector.md')
+    filename2 = os.path.join(basedir, 'markdown', 'proposal.md')
+    filename3 = os.path.join(basedir, 'markdown', 'build_atom.md')
     try:
         kyle_author = Author(real_name="Kyle Pittman", email="info@monkpit.com", twitter="monkpit")
         post_src = open(filename1).read()
@@ -51,4 +51,5 @@ def prime_db():
         print("could not find file: %s" % filename)
 
 if __name__=="__main__":
-    prime_db()
+    basedir = os.path.dirname(os.path.abspath(__file__))
+    prime_db(basedir)
