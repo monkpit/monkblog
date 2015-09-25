@@ -17,6 +17,8 @@ def show_author(slug):
 @model_blueprint.route('/posts/<slug>')
 def post_from_db(slug):
     post_object = db.session.query(Post).filter_by(slug=slug).first()
+    if post_object is None:
+        abort(404)
     given_passphrase = request.args.get('passphrase', None)
     if post_object.passphrase is not None:
         # Check if the passwords match
@@ -24,13 +26,13 @@ def post_from_db(slug):
             # serve post
             markdown_content = post_object.body
             markdown_theme = request.args.get('theme', 'spacelab')
-            return render_template('mysite/markdown.html',
+            return render_template('monkblog/markdown.html',
                                     context={'markdown_content': markdown_content,
                                          'markdown_theme': markdown_theme})
         else:
             abort(401)
     else:
         bootstrap_theme = request.args.get('theme', 'spacelab')
-        return render_template('mysite/markdown.html',
+        return render_template('monkblog/markdown.html',
                                 post=post_object,
                                 bootstrap_theme=bootstrap_theme)
