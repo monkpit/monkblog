@@ -51,8 +51,8 @@ def sitemap():
 
     return response
 
-@model_blueprint.route('/images/<filename>')
-@model_blueprint.route('/posts/images/<filename>')
+@site_blueprint.route('/images/<filename>')
+@site_blueprint.route('/posts/images/<filename>')
 def post_image(filename):
     return redirect('/static/img/post_img/' + filename)
 
