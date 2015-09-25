@@ -34,7 +34,3 @@ def post_from_db(slug):
         return render_template('mysite/markdown.html',
                                 post=post_object,
                                 bootstrap_theme=bootstrap_theme)
-
-@model_blueprint.route('/posts/images/<filename>')
-def post_image(filename):
-    return redirect('/static/img/post_img/' + filename)

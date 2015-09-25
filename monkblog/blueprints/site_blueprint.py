@@ -30,7 +30,7 @@ def sitemap():
     # author model pages
     authors = db.session.query(Author).order_by(Author.slug).all()
     for author in authors:
-        url=url_for('model_blueprint.show_author',slug=author.slug)
+        url = url_for('model_blueprint.show_author',slug=author.slug)
         pages.append([url])
 
     # post model pages
@@ -50,6 +50,11 @@ def sitemap():
     response.headers["Content-Type"] = "application/xml"
 
     return response
+
+@model_blueprint.route('/images/<filename>')
+@model_blueprint.route('/posts/images/<filename>')
+def post_image(filename):
+    return redirect('/static/img/post_img/' + filename)
 
 @site_blueprint.errorhandler(404)
 def page_not_found(e):
