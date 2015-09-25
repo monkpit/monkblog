@@ -14,7 +14,7 @@ site_blueprint = Blueprint('site_blueprint', __name__, template_folder='template
 def post_index():
     post_objects = db.session.query(Post).filter_by(passphrase=None).order_by(Post.pub_date.desc()).limit(10).all()
     bootstrap_theme = request.args.get('theme', 'spacelab')
-    return render_template('mysite/post_index.html', posts=post_objects, bootstrap_theme=bootstrap_theme)
+    return render_template('monkblog/post_index.html', posts=post_objects, bootstrap_theme=bootstrap_theme)
 
 @site_blueprint.route('/sitemap.xml')
 def sitemap():

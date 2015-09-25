@@ -1,6 +1,8 @@
+<div class="post" id="{{post.slug}}">
 <p>
   <i>
     Posted {{post.pub_date}} by <a href="/authors/{{post.author.slug}}">{{post.author.handle}}</a>
   </i>
 </p>
 {{ post.body|markdown }}
+</div>
