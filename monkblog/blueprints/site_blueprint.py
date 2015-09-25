@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from monkblog.models import Post, Author
 from monkblog.database import db
 from monkblog.app import app
+from monkblog.settings import APP_STATIC
 
 site_blueprint = Blueprint('site_blueprint', __name__, template_folder='templates')
 
@@ -37,6 +38,12 @@ def sitemap():
     for post in posts:
         url=url_for('model_blueprint.post_from_db',slug=post.slug)
         pages.append([url])
+
+    # static files
+    for current_dir, subdirs, filenames in os.walk(APP_STATIC):
+        for filename in filenames:
+            relative_file = os.path.join(current_dir, filename).replace(APP_STATIC + '\\', '').replace('\\', '/')
+            pages.append([url_for('static', filename=relative_file)])
 
     sitemap_xml = render_template('base/sitemap.xml', pages=pages)
     response= make_response(sitemap_xml)
