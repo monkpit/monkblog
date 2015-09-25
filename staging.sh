@@ -1,5 +1,6 @@
 #! /bin/bash
 
-cp -ur ./markdown/posts/images/* ./monkblog/static/img/post_img
-cp -ur ./monkblog/static/img/post_img/* ./markdown/posts/images
+cp -ur ./markdown/images/* ./monkblog/static/img/post_img
+cp -ur ./monkblog/static/img/post_img/* ./markdown/images
 
+python ./create_posts.py

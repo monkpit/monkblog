@@ -2,7 +2,7 @@
 
 # Building Atom From Source
 
-<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='posts/images/atomeditor.png' alt="Get Atom!"/></a>
+<a href='http://www.atom.io'><img class='img-responsive atom-logo' src='images/atomeditor.png' alt="Get Atom!"/></a>
 
 
 In [my previous post](/markdown/atom) I came to the conclusion that I needed some kind of workaround to fix my Atom installation on Ubuntu.
