@@ -26,13 +26,13 @@ def post_from_db(slug):
             # serve post
             markdown_content = post_object.body
             markdown_theme = request.args.get('theme', 'spacelab')
-            return render_template('monkblog/markdown.html',
+            return render_template('monkblog/single_post.html',
                                     context={'markdown_content': markdown_content,
                                          'markdown_theme': markdown_theme})
         else:
             abort(401)
     else:
         bootstrap_theme = request.args.get('theme', 'spacelab')
-        return render_template('monkblog/markdown.html',
+        return render_template('monkblog/single_post.html',
                                 post=post_object,
                                 bootstrap_theme=bootstrap_theme)
