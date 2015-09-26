@@ -1,11 +1,14 @@
 {% extends 'base/base.html' %}
+{% block title %}
+Monkblog author: {{author.real_name}}
+{% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/monkdown.css') }}">
 {% endblock %}
 
 {% block content %}
-<xmp theme="{{ markdown_theme }}" style="display: none">
+{% filter markdown %}
 ## Name
 {{ author.real_name }}
 {% if author.real_name != author.handle %}
@@ -16,7 +19,7 @@
 <a href="https://www.twitter.com/{{author.twitter}}">@{{ author.twitter }}</a>
 ## Email
 <a href="mailto://{{author.email}}">{{ author.email }}</a>
-</xmp>
+{% endfilter %}
 
 <a class="twitter-timeline"
   data-widget-id="646406227967148032"
@@ -24,8 +27,4 @@
   data-screen-name="{{author.twitter}}">
 Tweets by @{{author.twitter}}
 </a>
-{% endblock %}
-
-{% block scripts %}
-    <script src="{{ url_for('static', filename='bower_components/strapdown/strapdown.js') }}"></script>
 {% endblock %}
