@@ -42,7 +42,7 @@ def sitemap():
     # static files
     for current_dir, subdirs, filenames in os.walk(APP_STATIC):
         for filename in filenames:
-            relative_file = os.path.join(current_dir, filename).replace(APP_STATIC + '\\', '').replace('\\', '/')
+            relative_file = os.path.join(current_dir, filename).replace(APP_STATIC + os.path.sep, '').replace('\\', '/')
             pages.append([url_for('static', filename=relative_file)])
 
     sitemap_xml = render_template('base/sitemap.xml', pages=pages)
