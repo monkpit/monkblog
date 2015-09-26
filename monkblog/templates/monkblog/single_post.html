@@ -1,0 +1,8 @@
+{% extends 'base/base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/monkdown.css') }}">
+{% endblock %}
+{% block content %}
+{% include 'monkblog/render_post.html' %}
+{% endblock %}
