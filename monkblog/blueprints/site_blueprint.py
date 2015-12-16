@@ -16,6 +16,11 @@ def post_index():
     bootstrap_theme = request.args.get('theme', 'spacelab')
     return render_template('monkblog/post_index.html', posts=post_objects, bootstrap_theme=bootstrap_theme)
 
+@site_blueprint.route('/about')
+def about_page():
+    bootstrap_theme = request.args.get('theme', 'spacelab')
+    return render_template('monkblog/about.html')
+
 @site_blueprint.route('/sitemap.xml')
 def sitemap():
     pages=[]
