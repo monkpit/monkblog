@@ -1,7 +1,12 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <div id="headline" class="brand"></div>
-    </div>
+<nav>
+  <div class="brand">
+    the monk blog
   </div>
-</div>
+  <ul class="monknav">
+    {% if nav_goes_here %}
+    {% else %}
+      <li class="navitem nav-active"><a href="/">blog posts</a></li>
+      <li class="navitem"><a href="/about">about me</a></li>
+    {% endif %}
+  </ul>
+</nav>
