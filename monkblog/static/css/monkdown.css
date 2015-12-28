@@ -1,0 +1,20 @@
+img.atom-logo {
+	width: 25em;
+}
+
+div.post {
+	margin-bottom: 30em;
+    max-width: 800px;
+}
+
+div.post figure {
+	max-width: 40em;
+}
+
+h3, h4 {
+    margin-top: 2em;
+}
+
+div.container#content {
+    max-width: 800px;
+}

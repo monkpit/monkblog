@@ -5,26 +5,10 @@ img {
 	width: 100%;
 }
 
-ul {
-	padding: 0;
-}
-
-img.atom-logo {
-	width: 25em;
-}
-
 div.container#content {
 	font-size: 15px;
 	line-height: 150%;
 	padding-bottom: 40px;
-}
-
-div.post {
-	margin-bottom: 30em;
-}
-
-div.post figure {
-	max-width: 40em;
 }
 
 ul.monknav {
@@ -34,6 +18,7 @@ ul.monknav {
 	list-style-type: none;
 	text-align: center;
 	line-height: 3em;
+  padding: 0;
 }
 
 ul.monknav > li {

@@ -1,8 +1,17 @@
 {% extends 'base/base.html' %}
+
 {% block title %}the monk blog{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/monkdown.css') }}">
+{% endblock %}
+
 {% block content %}
 {% for post in posts %}
 {% include 'monkblog/render_post.html' %}
+{# don't indent this section because #}
+{# it will come out as a code block #}
+{# instead of an hline #}
 {% filter markdown %}
 ***
 {% endfilter %}
